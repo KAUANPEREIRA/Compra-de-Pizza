@@ -4,6 +4,8 @@
 
 //preventDefault = evita que um evento padrão aconteça exemplo submitar a pagina e.preventDefault()==previna a ação padrão
 //closest('procura algo mais proximo do atributo que foi passado')
+
+//listagem das pizzas e layout
 let modalQt = 1
 const qs = (elemento)=>{
     return document.querySelector(elemento)
@@ -52,4 +54,15 @@ pizzaJson.map((item,index)=>{
  
 qs('.pizza-area').append(pizzaItem) 
 
+})
+//Eventos
+let fecharModal = ()=>{
+    qs('.pizzaWindowArea').style.opacity=0
+    setTimeout(()=>{
+        qs('.pizzaWindowArea').style.display='none'
+    },500)
+}
+
+qsAll('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton ').forEach((item)=>{
+    item.addEventListener('click',fecharModal)
 })
