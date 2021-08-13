@@ -6,7 +6,9 @@
 //closest('procura algo mais proximo do atributo que foi passado')
 
 //listagem das pizzas e layout
+let carrinho= []
 let modalQt = 1
+let modalKey = 0
 const qs = (elemento)=>{
     return document.querySelector(elemento)
 }
@@ -28,6 +30,7 @@ pizzaJson.map((item,index)=>{
  pizzaItem.querySelector('a').addEventListener('click', (e)=>{
      e.preventDefault()
      let key = e.target.closest('.pizza-item').getAttribute('data-key')
+     modalKey = key
      modalQt = 1
      console.log(pizzaJson[key])
     qs('.pizzaBig img').src =pizzaJson[key].img
@@ -94,3 +97,7 @@ qsAll('.pizzaInfo--size').forEach((size, sizeIndex)=>{//selector Trata oque foi 
    })
 })
 
+//adicionar ao carrinho
+qs('.pizzaInfo--addButton').addEventListener('click', ()=>{
+console.log(`pizza : ${modalKey}`)
+})
