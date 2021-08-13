@@ -66,3 +66,31 @@ let fecharModal = ()=>{
 qsAll('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton ').forEach((item)=>{
     item.addEventListener('click',fecharModal)
 })
+
+//evento para diminuir quantidade
+qs('.pizzaInfo--qtmenos').addEventListener('click',()=>{
+    modalQt--
+    qs('.pizzaInfo--qt').innerHTML= modalQt
+    if(modalQt<=1){
+        modalQt=1
+        qs('.pizzaInfo--qt').innerHTML= modalQt
+    }
+
+})
+
+
+//evento para aumentar quantidade
+qs('.pizzaInfo--qtmais').addEventListener('click',()=>{
+    modalQt++
+    qs('.pizzaInfo--qt').innerHTML= modalQt
+
+})
+
+//logica para seleção de marcação de algo e desmarcação de outro
+qsAll('.pizzaInfo--size').forEach((size, sizeIndex)=>{//selector Trata oque foi pego nele como um array
+   size.addEventListener('click',(e)=>{
+    qs('.pizzaInfo--size.selected').classList.remove('selected')
+    size.classList.add('selected')
+   })
+})
+
