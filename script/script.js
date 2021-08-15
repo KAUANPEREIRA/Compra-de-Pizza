@@ -100,19 +100,22 @@ qsAll('.pizzaInfo--size').forEach((size, sizeIndex)=>{//selector Trata oque foi 
 //adicionar ao carrinho
 qs('.pizzaInfo--addButton').addEventListener('click', ()=>{
 let size = parseInt(qs('.pizzaInfo--size.selected').getAttribute('data-key'))
+
+let identificador = pizzaJson[modalKey].id+'@'+size
+
+let key = carrinho.findIndex((item)=>item.identificador == identificador)
+if(key>-1){
+    carrinho[key].qt += modalQt
+}else{
 carrinho.push({
+        identificador,
         id:pizzaJson[modalKey].id,
         size,
         qt:modalQt
-
-
-
-
 })
+
+}
 console.log(carrinho)
 fecharModal()
 }
-
-
-
 )
