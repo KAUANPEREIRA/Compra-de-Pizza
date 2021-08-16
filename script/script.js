@@ -32,7 +32,7 @@ pizzaJson.map((item,index)=>{
      let key = e.target.closest('.pizza-item').getAttribute('data-key')
      modalKey = key
      modalQt = 1
-     console.log(pizzaJson[key])
+     
     qs('.pizzaBig img').src =pizzaJson[key].img
     qs('.pizzaInfo h1').innerHTML = pizzaJson[key].name
     qs('.pizzaInfo--desc').innerHTML = pizzaJson[key].description
@@ -115,13 +115,23 @@ carrinho.push({
 })
 
 }
-console.log(carrinho)
+atualizarCarrinho()
 fecharModal()
-}
-)
+})
+
 
 
 function atualizarCarrinho(){
-
+    if(carrinho.length>0){
+        qs('aside').classList.add('show')
+        for(let i in carrinho){
+            let pizzaItem = pizzaJson.find((item)=>{
+                return item.id == carrinho[i].id
+            })
+            console.log(pizzaItem)
+        }
+    }else{
+        qs('aside').classList.remove('show')
+    }
 }
 
