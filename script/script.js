@@ -119,3 +119,9 @@ console.log(carrinho)
 fecharModal()
 }
 )
+
+
+function atualizarCarrinho(){
+
+}
+
