@@ -1,4 +1,4 @@
-// o item se refere a pizza , e index se refere a posição do array que ela se encontra
+// o item se refere a pizza , e index se refere a posição do array que ela se encontra metodo map
 //cloneNode(true) clona um item e sua estrutura
 // const qs utilizada para pegar algo com document.querySelector
 
@@ -147,12 +147,10 @@ function atualizarCarrinho(){
             carrinhoItem.querySelector('img').src = pizzaItem.img
             carrinhoItem.querySelector('.cart--item-nome').innerHTML = `${pizzaItem.name} (${pizzaTamanhoC})`
             carrinhoItem.querySelector('.cart--item--qt').innerHTML = carrinho[i].qt
-
-
             qs('.cart').append(carrinhoItem)
         }
     }else{
         qs('aside').classList.remove('show')
     }
 }
-
+console.log('testando aplicação')
