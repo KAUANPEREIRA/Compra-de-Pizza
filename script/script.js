@@ -124,11 +124,32 @@ fecharModal()
 function atualizarCarrinho(){
     if(carrinho.length>0){
         qs('aside').classList.add('show')
+        qs('.cart').innerHTML=''
         for(let i in carrinho){
             let pizzaItem = pizzaJson.find((item)=>{
                 return item.id == carrinho[i].id
             })
-            console.log(pizzaItem)
+            let carrinhoItem = qs('.models .cart--item').cloneNode(true)
+            let pizzaTamanhoC;
+            switch(carrinho[i].size){
+                case 0 :
+                    pizzaTamanhoC = 'P'
+                    break
+                case 1:
+                    pizzaTamanhoC = 'M'
+                    break
+                case 2:
+                    pizzaTamanhoC = 'G'
+                    break
+
+
+            }
+            carrinhoItem.querySelector('img').src = pizzaItem.img
+            carrinhoItem.querySelector('.cart--item-nome').innerHTML = `${pizzaItem.name} (${pizzaTamanhoC})`
+            carrinhoItem.querySelector('.cart--item--qt').innerHTML = carrinho[i].qt
+
+
+            qs('.cart').append(carrinhoItem)
         }
     }else{
         qs('aside').classList.remove('show')
