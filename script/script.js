@@ -147,10 +147,25 @@ function atualizarCarrinho(){
             carrinhoItem.querySelector('img').src = pizzaItem.img
             carrinhoItem.querySelector('.cart--item-nome').innerHTML = `${pizzaItem.name} (${pizzaTamanhoC})`
             carrinhoItem.querySelector('.cart--item--qt').innerHTML = carrinho[i].qt
+            carrinhoItem.querySelector('.cart--item-qtmenos').addEventListener('click',()=>{
+                if(carrinho[i].qt>1){
+                    carrinho[i].qt--
+                }else{
+                    carrinho.splice(i, 1)
+                }
+                atualizarCarrinho()
+            })
+
+            carrinhoItem.querySelector('.cart--item-qtmais').addEventListener('click',()=>{
+                carrinho[i].qt++
+                atualizarCarrinho()
+            })
+
+
             qs('.cart').append(carrinhoItem)
         }
     }else{
         qs('aside').classList.remove('show')
     }
 }
-console.log('testando aplicação')
+
