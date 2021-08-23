@@ -129,9 +129,15 @@ function atualizarCarrinho(){
         let desconto=0
         let total=0
         for(let i in carrinho){
-            let pizzaItem = pizzaJson.find((item)=>{
-                return item.id == carrinho[i].id
-            })
+            let pizzaItem = pizzaJson.find((item)=>item.id== carrinho[i].id)
+                subtotal += pizzaItem.price * carrinho[i].qt
+                
+                
+            
+
+
+            
+            
             let carrinhoItem = qs('.models .cart--item').cloneNode(true)
             let pizzaTamanhoC;
             switch(carrinho[i].size){
@@ -167,6 +173,12 @@ function atualizarCarrinho(){
 
             qs('.cart').append(carrinhoItem)
         }
+        desconto = subtotal* 0.1
+        total = subtotal - desconto
+
+        qs('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`
+        qs('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`
+        qs('.total  span:last-child').innerHTML = `R$ ${total.toFixed(2)}`
     }else{
         qs('aside').classList.remove('show')
     }
