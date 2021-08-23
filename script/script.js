@@ -125,6 +125,9 @@ function atualizarCarrinho(){
     if(carrinho.length>0){
         qs('aside').classList.add('show')
         qs('.cart').innerHTML=''
+        let subtotal=0
+        let desconto=0
+        let total=0
         for(let i in carrinho){
             let pizzaItem = pizzaJson.find((item)=>{
                 return item.id == carrinho[i].id
