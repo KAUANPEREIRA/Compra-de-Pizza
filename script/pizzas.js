@@ -9,4 +9,4 @@ let pizzaJson = [
     {id:7, name:'Chocolate', img:'images/pizza7.png', price:22.36, sizes:['320g', '530g', '860g'], description:'Nutella M&M massa fina com coco ralado'}
 ];
 
-console.log(pizzaJson)
+console.log(pizzaJson.id[1])
