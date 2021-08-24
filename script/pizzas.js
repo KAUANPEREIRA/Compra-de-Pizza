@@ -8,3 +8,5 @@ let pizzaJson = [
     {id:6, name:'Moda da Casa', img:'images/pizza6.png', price:18.55, sizes:['320g', '530g', '860g'], description:' Queijo tipo mussarela Molho para pizza Presunto fatiado Calabresa defumada'},
     {id:7, name:'Chocolate', img:'images/pizza7.png', price:22.36, sizes:['320g', '530g', '860g'], description:'Nutella M&M massa fina com coco ralado'}
 ];
+
+console.log(pizzaJson)
