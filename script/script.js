@@ -119,9 +119,18 @@ atualizarCarrinho()
 fecharModal()
 })
 
+qs('.menu-openner span').addEventListener('click',()=>{
+    if(carrinho.length>0){
+        qs('aside').style.left='0'
+    }
+})
 
+qs('.menu-closer').addEventListener('click',()=>{
+    qs('aside').style.left='100vw'
+})
 
 function atualizarCarrinho(){
+    qs('.menu-openner span').innerHTML = carrinho.length
     if(carrinho.length>0){
         qs('aside').classList.add('show')
         qs('.cart').innerHTML=''
@@ -181,6 +190,6 @@ function atualizarCarrinho(){
         qs('.total  span:last-child').innerHTML = `R$ ${total.toFixed(2)}`
     }else{
         qs('aside').classList.remove('show')
+        qs('aside').style.left='100vw'
     }
 }
-
