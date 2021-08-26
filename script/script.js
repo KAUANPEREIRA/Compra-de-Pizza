@@ -191,5 +191,6 @@ function atualizarCarrinho(){
     }else{
         qs('aside').classList.remove('show')
         qs('aside').style.left='100vw'
+        qs('cart--finalizar').style.left='100vw'
     }
 }
